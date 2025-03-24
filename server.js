@@ -6,7 +6,11 @@ const { Server } = require("socket.io");
 const app = express();
 const server = http.createServer(app);
 
-app.use(cors());
+app.use(cors({
+    origin: "https://chatfrontend-ullh.onrender.com",
+    methods: ["GET", "POST"]
+}));
+
 
 const io = new Server(server, {
     cors: {
